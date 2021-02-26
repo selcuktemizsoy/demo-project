@@ -1,12 +1,15 @@
 package examples.users;
 
-import com.intuit.karate.junit5.Karate;
+import com.intuit.karate.junit4.Karate;
+import cucumber.api.CucumberOptions;
+import org.junit.runner.RunWith;
 
-class UsersRunner {
+@RunWith(Karate.class)
+@CucumberOptions(
+      plugin =  {"json:target/cucumber.json"}
+)
+public class UsersRunner {
     
-    @Karate.Test
-    Karate testUsers() {
-        return Karate.run("users").relativeTo(getClass());
-    }    
+
 
 }
