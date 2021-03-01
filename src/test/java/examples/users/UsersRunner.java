@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Karate.class)
 @CucumberOptions(
-      plugin =  {"json:target/cucumber.json"}
+      plugin =  {"json:target/cucur.json"}
 )
 public class UsersRunner {
     
