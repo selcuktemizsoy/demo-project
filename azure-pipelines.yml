@@ -22,14 +22,3 @@ steps:
     testResultsFiles: '**/surefire-reports/*.xml'
     goals: 'clean test'
 
-- task: PublishCucumberReport@1
-  displayName: 'Publish Cucumber Report'
-  inputs:
-    jsonDir: ./results/cucumber
-    outputPath: ./results/cucumber
-    metadata: |
-     {
-       "ApplicationUrl": "$(App.Url)"
-     }
-    name: 'Functional Tests'
-    title: API
