@@ -10,6 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -18,5 +19,11 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/cucumber-html-reports/overview-steps.html'
-    goals: 'test'
+    testResultsFiles: '**/surefire-reports/*.xml'
+    goals: 'clean test -Dtest=ParallelRunnerTest'
+- task: PublishCucumberReport@1
+  inputs:
+    jsonDir: '$(System.DefaultWorkingDirectory)'
+    outputPath: '$(Sytem.DefaultWorkingDirectory)'
+    theme: 'bootstrap'
+    reportSuiteAsScenarios: true
