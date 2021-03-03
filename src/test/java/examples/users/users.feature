@@ -43,4 +43,10 @@ Feature: sample karate test script
     # When method get
     # Then status 200
     # And match response contains user
-  
+
+  Scenario: azure report
+    When url "https://vstmr.dev.azure.com/selcuktemizsoy/selcuktemizsoy/_apis/testresults/results/resultmetadata?&api-version=6.0-preview.4"
+    And request "16"
+    When method POST
+    Then print response
+    And status 200
