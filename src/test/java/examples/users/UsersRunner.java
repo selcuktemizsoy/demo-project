@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @KarateOptions(
         tags = "@wip"
 )
-public class UsersRunnerTest {
+public class UsersRunner {
     
 
 
