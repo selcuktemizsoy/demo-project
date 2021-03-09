@@ -14,16 +14,20 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
+    goals: 'clean test -Dtest=ParallelRunnerTest'
+    publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/*.xml'
-    goals: 'clean test -Dtest=ParallelRunnerTest'
+    mavenVersionOption: 'Default'
+    mavenOptions: '-Xmx3072m'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 
-- task: PublishPipelineArtifact@1
+
+- task: PublishCucumberReport@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/**/target/cucumber-html-reports/overview-features.html'
-    artifact: 'overview-features.html'
-    publishLocation: 'pipeline'
+    jsonDir: '$(System.DefaultWorkingDirectory)'
+    outputPath: '$(Sytem.DefaultWorkingDirectory)'
+    theme: 'bootstrap'
+    reportSuiteAsScenarios: true
