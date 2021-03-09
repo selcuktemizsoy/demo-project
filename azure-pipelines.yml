@@ -24,6 +24,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/target/cucumber-html-reports/'
+    targetPath: '$(Pipeline.Workspace)/target/cucumber-html-reports/overview-features.html'
     artifact: 'overview-features.html'
     publishLocation: 'pipeline'
