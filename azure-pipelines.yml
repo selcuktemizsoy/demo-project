@@ -22,3 +22,8 @@ steps:
     testResultsFiles: '**/surefire-reports/*.xml'
     goals: 'clean test -Dtest=ParallelRunnerTest'
 
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)/target/cucumber-html-reports/'
+    artifact: 'overview-features.html'
+    publishLocation: 'pipeline'
