@@ -31,3 +31,8 @@ steps:
     outputPath: 'target/cucumber-html-reports/'
     theme: 'bootstrap'
     reportSuiteAsScenarios: true
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'target/cucumber-html-reports/'
+    artifact: 'cucumber-html-reports'
+    publishLocation: 'pipeline'
