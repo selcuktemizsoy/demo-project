@@ -20,10 +20,5 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/*.xml'
-    goals: 'clean test'
-- task: PublishCucumberReport@1
-  inputs:
-    jsonDir: '$(System.DefaultWorkingDirectory)'
-    outputPath: '$(Sytem.DefaultWorkingDirectory)'
-    theme: 'bootstrap'
-    reportSuiteAsScenarios: true
+    goals: 'clean test -Dtest=ParallelRunnerTest'
+
