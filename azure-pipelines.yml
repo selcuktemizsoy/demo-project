@@ -21,9 +21,4 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/*.xml'
     goals: 'clean test -Dtest=ParallelRunnerTest'
-- task: PublishCucumberReport@1
-  inputs:
-    jsonDir: '$(System.DefaultWorkingDirectory)'
-    outputPath: '$(Sytem.DefaultWorkingDirectory)'
-    theme: 'bootstrap'
-    reportSuiteAsScenarios: true
+
