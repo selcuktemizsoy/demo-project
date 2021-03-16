@@ -25,6 +25,12 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '**index.html'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)\target\gatling'
+    Contents: '**\index.html'
+    TargetFolder: '$(System.DefaultWorkingDirectory)\reportTempFolder'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)\reportTempFolder\index.html'
+    ArtifactName: 'drop-report'
+    publishLocation: 'Container'
