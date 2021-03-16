@@ -25,7 +25,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/target/gatling'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/target'
     Contents: '**/index.html'
     TargetFolder: '$(build.artifactstagingdirectory)'
     
