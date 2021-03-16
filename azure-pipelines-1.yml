@@ -22,7 +22,10 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'target/gatling'
+    publishLocation: 'pipeline'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/target'
