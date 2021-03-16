@@ -28,8 +28,8 @@ steps:
     publishLocation: 'pipeline'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/target'
-    Contents: '**/index.html'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/target/gatling'
+    Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
     
 - task: PublishBuildArtifacts@1
