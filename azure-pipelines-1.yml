@@ -27,7 +27,7 @@ steps:
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/target/gatling'
     Contents: '**/index.html'
-    TargetFolder: '$(System.DefaultWorkingDirectory)/reportTempFolder'
+    TargetFolder: '$(build.artifactstagingdirectory)'
     
 - task: PublishBuildArtifacts@1
   inputs:
