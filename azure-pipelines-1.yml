@@ -25,6 +25,6 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(agent.builddirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: '**index.html'
     TargetFolder: '$(build.artifactstagingdirectory)'
